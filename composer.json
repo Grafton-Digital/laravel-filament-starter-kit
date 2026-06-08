@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "ercogx/laravel-filament-starter-kit",
+    "name": "grafton-digital/laravel-filament-starter-kit",
     "type": "project",
     "description": "This is a Filament v5 Starter Kit for Laravel 13, designed to accelerate the development of Filament-powered applications.",
     "keywords": [
