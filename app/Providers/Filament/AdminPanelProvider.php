@@ -15,14 +15,12 @@ use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Support\Enums\Width;
 use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Jacobtims\FilamentLogger\FilamentLoggerPlugin;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 use SpyApp\ThemeEdinburgh\ThemeEdinburghPlugin;
 use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
@@ -43,6 +41,9 @@ class AdminPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
                 Dashboard::class,
+            ])
+            ->resources([
+                config('filament-logger.activity_resource'),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
@@ -78,7 +79,6 @@ class AdminPanelProvider extends PanelProvider
                     ]),
                 ThemeEdinburghPlugin::make(),
                 FilamentBackgroundsPlugin::make(),
-                FilamentLoggerPlugin::make(),
                 BreezyCore::make()
                     ->myProfile(),
                 QuickCreatePlugin::make()

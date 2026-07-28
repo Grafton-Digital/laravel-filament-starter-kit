@@ -99,7 +99,7 @@ return [
     */
 
     'permissions' => [
-        'separator' => '_',
+        'separator' => ':',
         'case' => 'snake',
         'generate' => true,
     ],
@@ -117,11 +117,10 @@ return [
 
     'policies' => [
         'path' => app_path('Policies'),
-        'merge' => true,
+        'merge' => false,
         'generate' => true,
         'methods' => [
-            'viewAny', 'view', 'create', 'update', 'delete', 'restore',
-            'forceDelete', 'forceDeleteAny', 'restoreAny', 'replicate', 'reorder',
+            'viewAny', 'view', 'create', 'update', 'delete'
         ],
         'single_parameter_methods' => [
             'viewAny',
@@ -163,12 +162,9 @@ return [
     'resources' => [
         'subject' => 'model',
         'manage' => [
-            \BezhanSalleh\FilamentShield\Resources\Roles\RoleResource::class => [
+            \App\Filament\Resources\Activity\ActivityResource::class => [
                 'viewAny',
                 'view',
-                'create',
-                'update',
-                'delete',
             ],
         ],
         'exclude' => [
@@ -212,6 +208,7 @@ return [
         'exclude' => [
             \Filament\Widgets\AccountWidget::class,
             \Filament\Widgets\FilamentInfoWidget::class,
+            \App\Filament\Widgets\GraftonDigitalInfoWidget::class,
         ],
     ],
 
