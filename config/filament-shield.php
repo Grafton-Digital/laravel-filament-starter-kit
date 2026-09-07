@@ -188,6 +188,7 @@ return [
         'prefix' => 'view',
         'exclude' => [
             \Filament\Pages\Dashboard::class,
+            \Jeffgreco13\FilamentBreezy\Pages\MyProfilePage::class,
         ],
     ],
 

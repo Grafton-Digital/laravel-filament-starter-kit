@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\FilamentLoggerPlugin;
 use App\Filament\Resources\Users\UserResource;
 use Awcodes\QuickCreate\QuickCreatePlugin;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
@@ -42,9 +43,6 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
-            ->resources([
-                config('filament-logger.activity_resource'),
-            ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 AccountWidget::class,
@@ -79,6 +77,7 @@ class AdminPanelProvider extends PanelProvider
                     ]),
                 ThemeEdinburghPlugin::make(),
                 FilamentBackgroundsPlugin::make(),
+                FilamentLoggerPlugin::make(),
                 BreezyCore::make()
                     ->myProfile(),
                 QuickCreatePlugin::make()
